@@ -14,7 +14,7 @@ def get_ocr_result(img):
     """
 
     # 数据维度尺寸变换
-    img = img[4:-4,4:-4]
+    # img = img[4:-4,4:-4]
     img = img/255
     img = np.resize(img,(1,28,28,1))
 
