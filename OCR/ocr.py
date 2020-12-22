@@ -14,6 +14,7 @@ def get_ocr_result(img):
     """
 
     # 数据维度尺寸变换
+    img = img[4:-4,4:-4]
     img = img/255
     img = np.resize(img,(1,28,28,1))
 
@@ -23,6 +24,6 @@ def get_ocr_result(img):
 if __name__ == "__main__":
     import cv2
     img = cv2.imread('OCR\\OCR_data\\testing\\0\\0_5.jpg' ,cv2.IMREAD_GRAYSCALE)
-    img = cv2.resize(img,(28,28))
+    img = cv2.resize(img,(36,36))
     result = get_ocr_result(img)
     print(result)
