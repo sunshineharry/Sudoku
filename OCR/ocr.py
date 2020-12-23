@@ -8,7 +8,7 @@ TEST = False
 
 def get_ocr_result(img,thresh_val):
 
-    # 数据维度尺寸变换
+    # 去除黑边并且二值化
     img = cv2.resize(img,(36,36))
     img = img[4:-4,4:-4]
     ret, img = cv2.threshold(img,thresh_val,255,cv2.THRESH_BINARY_INV)
@@ -19,4 +19,5 @@ def get_ocr_result(img,thresh_val):
     img = img/255
     img = np.resize(img,(1,28,28,1))
 
+    # 模型预测
     return model.predict_classes(img)[0]
